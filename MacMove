@@ -1,0 +1,89 @@
+#!/bin/bash
+DOCK="/Volumes/Macintosh HD 1/Users/$USER/Library/Preferences/com.apple.dock.plist"
+FIREFOX="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Firefox"
+SAFARI="/Volumes/Macintosh HD 1/Users/$USER/Library/Safari/Bookmarks.plist"
+GOOGLE="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Google/Chrome"
+GDRIVE="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Google/Drive"
+
+#Grab Dock************************************************
+if [ -f "$DOCK" ];
+then
+   echo "1. Dock File Exist."
+   echo " "
+   cp -f /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Preferences/com.apple.dock.plist /Users/$USER/Library/Preferences/
+else
+   echo "1. Dock plist Doesn't Exist" >&2
+   echo " "
+fi
+
+sleep 10
+
+killall Dock
+
+sleep 5
+
+
+#Grab Firefox************************************************
+if [ -d "$FIREFOX" ];
+then
+   echo "2. Firefox Folder Exist."
+   echo " "
+   cp -r /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Firefox /Users/$USER/Library/Application\ Support/
+else
+   echo "2. Firefox Folder Doesn't Exist" >&2
+   echo " "
+fi
+
+sleep 5
+
+#Grab Safari************************************************
+if [ -f "$SAFARI" ];
+then
+   echo "3. Safari Bookmarks File Exist."
+   echo " "
+   open /Applications/Safari.app
+   sleep 5
+   killall Safari
+   sleep 2
+   cp -f /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Safari/Bookmarks.plist /Users/$USER/Library/Safari/Bookmarks.plist
+else
+   echo "3. Safari Bookmark plist Doesn't Exist" >&2
+   echo " "
+fi
+
+sleep 5
+
+#Grab Google Chrome*******************************************
+if [ -d "$GOOGLE" ];
+then
+   echo "4. Google Chrome Folder Exist"
+   echo " "
+   open "/Applications/Google Chrome.app"
+   sleep 5
+   killall "Google Chrome"
+   sleep 5
+   cp -r /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Chrome/Default/Bookmarks /Users/$USER/Library/Application\ Support/Google/Chrome/Default/
+else
+   echo "4. Google Chrome Folder Doesn't Exist" >&2
+   echo " "
+fi
+
+sleep 5
+
+#Grab Google Drive*******************************************
+if [ -d "$GDRIVE" ];
+then
+   echo "5. Google Drive Folder Exist"
+   echo " "
+   sleep 5
+   cp -r /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Drive /Users/$USER/Library/Application\ Support/Google/
+else
+   echo "5. Google Drive Folder Doesn't Exist" >&2
+   echo " "
+fi
+
+sleep 5
+
+echo " "
+echo "Transfer has been completed. - Bob Morse - June 16th 2017 -"
+echo " "

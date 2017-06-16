@@ -20,4 +20,5 @@ Items that get transferd:
 *Safari bookmarks plist
 
 *Google Chrome folder with bookmarks
-Google Drive folder (~/Application Support/Google/Drive/ not the user ~/Google Drive folder which needs to be done manually later)
+
+*Google Drive folder (~/Application Support/Google/Drive/ not the user ~/Google Drive folder which needs to be done manually later)

@@ -2,7 +2,7 @@
 DOCK="/Volumes/Macintosh HD 1/Users/$USER/Library/Preferences/com.apple.dock.plist"
 FIREFOX="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Firefox"
 SAFARI="/Volumes/Macintosh HD 1/Users/$USER/Library/Safari/Bookmarks.plist"
-GOOGLE="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Google/Chrome"
+CHROME="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Google/Chrome"
 GDRIVE="/Volumes/Macintosh HD 1/Users/$USER/Library/Application Support/Google/Drive"
 
 #Grab Dock************************************************
@@ -11,17 +11,14 @@ then
    echo "1. Dock File Exist."
    echo " "
    cp -f /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Preferences/com.apple.dock.plist /Users/$USER/Library/Preferences/
+   sleep 10
+   killall Dock
 else
    echo "1. Dock plist Doesn't Exist" >&2
    echo " "
 fi
 
-sleep 10
-
-killall Dock
-
 sleep 5
-
 
 #Grab Firefox************************************************
 if [ -d "$FIREFOX" ];
@@ -54,7 +51,7 @@ fi
 sleep 5
 
 #Grab Google Chrome*******************************************
-if [ -d "$GOOGLE" ];
+if [ -d "$CHROME" ];
 then
    echo "4. Google Chrome Folder Exist"
    echo " "
@@ -76,7 +73,7 @@ then
    echo "5. Google Drive Folder Exist"
    echo " "
    sleep 5
-   cp -r /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Drive /Users/$USER/Library/Application\ Support/Google/
+   ditto /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Drive /Users/$USER/Library/Application\ Support/Google
 else
    echo "5. Google Drive Folder Doesn't Exist" >&2
    echo " "
@@ -85,5 +82,8 @@ fi
 sleep 5
 
 echo " "
-echo "Transfer has been completed. - Bob Morse - June 16th 2017 -"
+echo "Transfer has been completed"
+echo "Bob Morse"
+echo "rmorse8843@me.com"
+echo "Revised June 19th, 2017"
 echo " "

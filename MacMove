@@ -73,7 +73,7 @@ then
    echo "5. Google Drive Folder Exist"
    echo " "
    sleep 5
-   ditto /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Drive /Users/$USER/Library/Application\ Support/Google
+   ditto /Volumes/Macintosh\ HD\ 1/Users/$USER/Library/Application\ Support/Google/Drive /Users/$USER/Library/Application\ Support/Google/Drive/
 else
    echo "5. Google Drive Folder Doesn't Exist" >&2
    echo " "
@@ -81,7 +81,6 @@ fi
 
 sleep 5
 
-echo " "
 echo "Transfer has been completed"
 echo "Bob Morse"
 echo "rmorse8843@me.com"
